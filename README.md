@@ -7,6 +7,12 @@
 
 Package `fscopy` implements file system copy functions not present in standard library.
 
+```go
+fscopy.Dir( "/home/nofeatures/dst-dir", "/home/nofeatures/source-dir" )
+fscopy.File( "/home/nofeatures/dst-file", "/home/nofeatures/source-file" )
+fscopy.Into( "/home/nofeatures/dst-dir", "/tmp/file1", "/tmp/file2", "/tmp/some-dir" )
+```
+
 ##  Circular References and symlinks
 The types of environments where I intend to use this package are somewhat manicured and highly unlikely to experience issues related to symlinks or circular references.  As such this package has no logic or consideration for symlinks.  However `fscopy.Dir()` does have a low-effort mechanism to track `src-to-dst` copies that have already occurred and will not duplicate its efforts.
 
